@@ -52,11 +52,18 @@ if(req.body.result.action=='demo1')
     
     var webReply = 'Hello Welcome from the webhook Demo1.'
   // the most basic response
-  res.status(200).json({
-    source: 'webhook',
-    speech: webReply,
-    displayText: webReply
-  })
+  return {
+		      'speech': 'When',
+              'displayText': 'When',
+              'messages': 
+              [{'title': 'Please provide your feedback',
+                'replies': ['Excellent',
+                            'Good',
+                            'Average',
+                            'Bad'],
+                'type': 2}],
+              'source': 'dimwei.com'
+		}
   }
   
 })
