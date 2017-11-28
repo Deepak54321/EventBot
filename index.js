@@ -39,7 +39,7 @@ app.post('/webhook', function (req, res) {
    //var context=req.body.result.contexts[0];
   if(req.body.result.action=='demo')
   {
-    var request = require('request');
+  /*  var request = require('request');
             request({
                 url:'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240'
             },function (error,response,body) {
@@ -51,12 +51,12 @@ app.post('/webhook', function (req, res) {
                   /*  return {
         		"speech": price,
         		"displayText": price,
-    			}*/
+    			}
                 }
                 else {
                     console(log.error());
                 }
-            });
+            });*/
     var webhookReply = 'Hello Welcome from the webhook DemoApi.'
   // the most basic response
   res.status(200).json({
