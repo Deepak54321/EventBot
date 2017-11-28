@@ -39,13 +39,36 @@ app.post('/webhook', function (req, res) {
     //var context=req.body.result.contexts[0];
   if(req.body.result.action=='demo')
   {
-    var webhookReply = 'Hello Welcome from the webhook Demo.'
-  // the most basic response
-  res.status(200).json({
-    source: 'webhook',
-    speech: webhookReply,
-    displayText: webhookReply
-  })
+    var request = require('request');
+            request({
+                url:'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240'
+            },function (error,response,body) {
+                if (!error && response.statusCode == 200) {
+                    var result = JSON.parse(body);
+                    var responseCode=result.responseData;
+                    var productPrice=responseCode.product_price;
+                    var price=productPrice[0].price +'Rs';
+                    return {
+        		"speech": price,
+        		"displayText": price,
+              /*   'messages': 
+              [{
+                   'type':0,
+                   'speech':speech
+               },
+                  {'title': 'Please provide your feedback',
+                'replies': ['Feedback'],
+                'type': 2}],*/
+              'source': 'dimwei.com'
+       			# "data": data,
+        		# "contextOut": [],
+        		#"source": "apiai-weather-webhook-sample"
+    			}
+                }
+                else {
+                    console(log.error());
+                }
+            });  
   }
 if(req.body.result.action=='demo1')
   {
