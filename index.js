@@ -53,9 +53,7 @@ app.post('/webhook', function (req, res) {
         		"displayText": price,
     			}
                 }
-                else {
-                    console(log.error());
-                }
+               
             });  
   }
 if(req.body.result.action=='demo1')
