@@ -36,14 +36,29 @@ app.post('/webhook', function (req, res) {
 
   // parameters are stored in req.body.result.parameters
   //var userName = req.body.result.parameters['given-name']
-  var webhookReply = 'Hello Welcome from the webhook.'
-
+    var context=req.body.result.contexts[0];
+  if(context.action=='demo')
+  {
+    var webhookReply = 'Hello Welcome from the webhook Demo.'
   // the most basic response
   res.status(200).json({
     source: 'webhook',
     speech: webhookReply,
     displayText: webhookReply
   })
+  }
+if(context.action=='demo1')
+  {
+    
+    var webReply = 'Hello Welcome from the webhook Demo1.'
+  // the most basic response
+  res.status(200).json({
+    source: 'webhook',
+    speech: webReply,
+    displayText: webReply
+  })
+  }
+  
 })
 
 app.listen(app.get('port'), function () {
