@@ -51,15 +51,6 @@ app.post('/webhook', function (req, res) {
                     return {
         		"speech": price,
         		"displayText": price,
-              /*   'messages': 
-              [{
-                   'type':0,
-                   'speech':speech
-               },
-                  {'title': 'Please provide your feedback',
-                'replies': ['Feedback'],
-                'type': 2}],*/
-              'source': 'dimwei.com'
     			}
                 }
                 else {
