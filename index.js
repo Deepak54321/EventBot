@@ -190,17 +190,19 @@ if(req.body.result.action=='demo1')
                                             var dealer_name = dealers[0].dealer_name;
                                             var dealer_add = dealers[0].dealer_address;
                                             var dealer_Mob = dealers[0].sales_manager_mobile;
-                                            message = dealer_name + dealer_add + dealer_Mob;
+                                            var text1 = dealer_name + dealer_add + dealer_Mob;
+											message=text1;
                                             //text1="Helloa";
                                             console.log("Dealer information %s",message);
                                             if(message!='') {
-												  
-											check=true;
+												  var text2=true;
+											check=text2;
 											console.log("Dealer information inside %s",check);
 											}
 											else
 											{
-											check=false;
+												var text2=false;
+											    check=text2;
 											console.log("Dealer information inside1 %s",check);
 											}
                                      
