@@ -195,21 +195,6 @@ if(req.body.result.action=='demo1')
                                             text1="Helloa";
                                             console.log("Dealer information %s",text1);
                                             //if(text1!='') {
-                                            res.status(200).json({
-                                                source: 'webhook',
-                                                speech: text1,
-                                                displayText: text1,
-                                                'messages':
-                                                [{
-                                                    'type': 0,
-                                                    'speech': text1
-                                                },
-                                                {
-                                                    'title': 'Please provide your feedback',
-                                                    'replies': ['Feedback'],
-                                                    'type': 2
-                                                }],
-                                            })
                                     //}
                                            
                                             //sendTextMessage(sender,text1);
@@ -238,6 +223,21 @@ if(req.body.result.action=='demo1')
                 }
 
             });
+	 				res.status(200).json({
+                                                source: 'webhook',
+                                                speech: "sdfgdf",
+                                                displayText: "asdgdsfg",
+                                                'messages':
+                                                [{
+                                                    'type': 0,
+                                                    'speech': "zdxfgdfg"
+                                                },
+                                                {
+                                                    'title': 'Please provide your feedback',
+                                                    'replies': ['Feedback'],
+                                                    'type': 2
+                                                }],
+                                            }) 
   }
   
 })
