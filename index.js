@@ -196,18 +196,20 @@ if(req.body.result.action=='demo1')
                                             console.log("Dealer information %s",text1);
                                             //if(text1!='') {
                                             res.status(200).json({
-           					source: 'webhook',
-          					speech: price,
-           					displayText: price,
-		    				'messages': 
-              					[{
-                   					'type':0,
-                   					'speech':price
-               					},
-                  				{'title': 'Please provide your feedback',
-                				'replies': ['Feedback'],
-                				'type': 2}],
-            					})
+                                                source: 'webhook',
+                                                speech: text1,
+                                                displayText: text1,
+                                                'messages':
+                                                [{
+                                                    'type': 0,
+                                                    'speech': text1
+                                                },
+                                                {
+                                                    'title': 'Please provide your feedback',
+                                                    'replies': ['Feedback'],
+                                                    'type': 2
+                                                }],
+                                            })
                                     //}
                                            
                                             //sendTextMessage(sender,text1);
