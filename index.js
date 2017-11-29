@@ -69,7 +69,7 @@ app.post('/webhook', function (req, res) {
    
  
   }
-if(req.body.result.action=='dealer')
+if(req.body.result.action=='demo1')
   {
     
      var pincode=110005;
@@ -192,6 +192,7 @@ if(req.body.result.action=='dealer')
                                             var dealer_add = dealers[0].dealer_address;
                                             var dealer_Mob = dealers[0].sales_manager_mobile;
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
+                                            
                                             console.log("Dealer information %s",text1);
                                             //if(text1!='') {
                                              res.status(200).json({
