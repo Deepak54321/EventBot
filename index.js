@@ -259,13 +259,19 @@ if(req.body.result.action=='Dealerapi')
            					source: 'webhook',
           					speech: '',
            					displayText: '',
-		    				  [{'title': 'Please provide your feedback',
-                'replies': ['Excellent',
+							'messages': 
+							[
+                  				{'title': 'Please provide your feedback',
+                				'replies': ['Excellent',
                             'Good',
                             'Average',
                             'Bad'],
-                'type': 2}],
+                				'type': 2}
+								
+								],
             					})
+		    			
+            					
   }
   
 })
