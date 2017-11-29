@@ -73,7 +73,7 @@ if(req.body.result.action=='demo1')
   {
     
      var pincode=110005;
-
+var check='';
             var StateId='';
             var CityId='';
             var City='';
@@ -191,23 +191,17 @@ if(req.body.result.action=='demo1')
                                             var dealer_name = dealers[0].dealer_name;
                                             var dealer_add = dealers[0].dealer_address;
                                             var dealer_Mob = dealers[0].sales_manager_mobile;
-                                            var text1 = dealer_name + dealer_add + dealer_Mob;
-                                            text1="Helloa";
-                                            console.log("Dealer information %s",text1);
-                                            //if(text1!='') {
-                                            res.status(200).json({
-           					source: 'webhook',
-          					speech: price,
-           					displayText: price,
-		    				'messages': 
-              					[{
-                   					'type':0,
-                   					'speech':price
-               					},
-                  				{'title': 'Please provide your feedback',
-                				'replies': ['Feedback'],
-                				'type': 2}],
-            					})
+                                            message = dealer_name + dealer_add + dealer_Mob;
+                                            //text1="Helloa";
+                                            console.log("Dealer information %s",message);
+                                            if(message!='') {
+											check=true;
+											}
+											else
+											{
+											check=false;
+											}
+                                     
                                     //}
                                            
                                             //sendTextMessage(sender,text1);
@@ -236,6 +230,27 @@ if(req.body.result.action=='demo1')
                 }
 
             });
+			//replies insert here
+			if(check==true)
+			{
+			       res.status(200).json({
+           					source: 'webhook',
+          					speech: price,
+           					displayText: price,
+		    				'messages': 
+              					[{
+                   					'type':0,
+                   					'speech':price
+               					},
+                  				{'title': 'Please provide your feedback',
+                				'replies': ['Feedback'],
+                				'type': 2}],
+            					})
+			}
+			else
+			{
+				
+			}
   }
   
 })
