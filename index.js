@@ -33,6 +33,10 @@ app.post('/webhook', function (req, res) {
 
   // the value of Action from api.ai is stored in req.body.result.action
   console.log('* Received action -- %s', req.body.result.action)
+
+  // parameters are stored in req.body.result.parameters
+  //var userName = req.body.result.parameters['given-name']
+   //var context=req.body.result.contexts[0];
   if(req.body.result.action=='demo')
   {
    var request = require('request');
@@ -44,22 +48,23 @@ app.post('/webhook', function (req, res) {
                     var responseCode=result.responseData;
                     var productPrice=responseCode.product_price;
                     var price=productPrice[0].price +'Rs';
-					 res.status(200).json({
-    source: 'webhook',
-    speech: price,
-    displayText: price
-  })
-                
+           res.status(200).json({
+           source: 'webhook',
+           speech: price,
+           displayText: price
+            })
                 }
                 else {
                     console(log.error());
                 }
             });
    
+ 
   }
 if(req.body.result.action=='demo1')
   {
-	        var pincode=110005;
+    
+   //var pincode=110005;
 
             var StateId='';
             var CityId='';
@@ -79,7 +84,7 @@ if(req.body.result.action=='demo1')
             var request = require('request');
             //1
             request({
-                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+pincode+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
+                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+dealer_pin+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
             },function (error,response,body) {
                 if (!error && response.statusCode == 200) {
                     var result = JSON.parse(body);
@@ -127,7 +132,13 @@ if(req.body.result.action=='demo1')
                                 }
 
                             }
-                           
+                            var reply2 = [
+                                {
+                                    "content_type": "text",
+                                    "title": "Restart",
+                                    "payload": "Restart"
+                                }
+                            ];
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
                                 //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
@@ -172,16 +183,20 @@ if(req.body.result.action=='demo1')
                                            
                                             console.log("Dealer information %s",text1);
                                             if(text1!='') {
-                                               res.status(200).json({
-    source: 'webhook',
-    speech: text1,
-    displayText: text1
-  })
-  }
+                                                res.status(200).json({
+           source: 'webhook',
+           speech: price,
+           displayText: price
+            })
+                }
+                else {
+                    console(log.error());
+                }
+            });
                                             }
                                             else
                                             {
-                                                //sendQuickReply(sender,"No dealers Found in your area", rply);
+                                                sendQuickReply(sender,"No dealers Found in your area", rply);
                                             }
                                             //sendTextMessage(sender,text1);
                                         }
@@ -189,7 +204,8 @@ if(req.body.result.action=='demo1')
                                             console(log.error());
                                         }
                                     });
-                                    
+                                  
+
                                 }
                                 else {
                                     console(log.error());
@@ -208,10 +224,8 @@ if(req.body.result.action=='demo1')
                 }
 
             });
-    
-   // var webReply = 'Hello Welcome from the webhook Demo1.'
-  // the most basic response
-  
+
+  }
   
 })
 
