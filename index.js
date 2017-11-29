@@ -72,8 +72,8 @@ app.post('/webhook', function (req, res) {
 if(req.body.result.action=='demo1')
   {
     
-     var pincode=110005;
-var check='';
+            var pincode=110005;
+            var check='';
             var StateId='';
             var CityId='';
             var City='';
@@ -88,7 +88,6 @@ var check='';
             var dealerId='';
             var address_components='';
             var message='';
-
             var request = require('request');
             //1
             request({
@@ -234,7 +233,7 @@ var check='';
 
             });
 			//replies insert here
-			console.log("Dealer information outside %s",check);
+			console.log("Dealer information outside %s",pincode);
 			
 				//console.log(check +'check logged');
 			       res.status(200).json({
