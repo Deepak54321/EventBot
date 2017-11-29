@@ -195,7 +195,7 @@ if(req.body.result.action=='demo1')
                                             text1="Helloa";
                                             console.log("Dealer information %s",text1);
                                             //if(text1!='') {
-                                             res.status(200).json({
+                                            res.status(200).json({
            source: 'webhook',
            speech: text1,
            displayText: text1,
