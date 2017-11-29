@@ -37,6 +37,22 @@ app.post('/webhook', function (req, res) {
   // parameters are stored in req.body.result.parameters
   //var userName = req.body.result.parameters['given-name']
    //var context=req.body.result.contexts[0];
+   function printdealer(res,message)
+   {
+	    res.status(200).json({
+           					source: 'webhook',
+          					speech: message,
+           					displayText: message,
+		    				'messages': 
+              					[{
+                   					'type':0,
+                   					'speech':message
+               					},
+                  				{'title': 'Please provide your feedback',
+                				'replies': ['Feedback'],
+                				'type': 2}],
+            					})
+   }
   if(req.body.result.action=='Priceapi')
   {
    var request = require('request');
@@ -197,6 +213,7 @@ if(req.body.result.action=='Dealerapi')
                                             if(message!='') {
 												  var text2=true;
 											check=text2;
+											printdealer(res,message);
 											console.log("Dealer information inside %s",check);
 											}
 											else
