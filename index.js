@@ -73,7 +73,7 @@ if(req.body.result.action=='demo1')
   {
     
      var pincode=110005;
-
+            var check='';
             var StateId='';
             var CityId='';
             var City='';
@@ -178,7 +178,7 @@ if(req.body.result.action=='demo1')
                                     if(CityId=='') {
                                         //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply3);
                                     }
-
+								
                                   
                                     request({
                                         url: 'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=' + StateId + '&city_profile_id=' + CityId
@@ -191,11 +191,17 @@ if(req.body.result.action=='demo1')
                                             var dealer_name = dealers[0].dealer_name;
                                             var dealer_add = dealers[0].dealer_address;
                                             var dealer_Mob = dealers[0].sales_manager_mobile;
-                                            var text1 = dealer_name + dealer_add + dealer_Mob;
-                                            text1="Helloa";
-                                            console.log("Dealer information %s",text1);
-                                            //if(text1!='') {
-                                    //}
+                                            message = dealer_name + dealer_add + dealer_Mob;
+                                           // text1="Helloa";
+                                            console.log("Dealer information %s",message);
+                                            if(text1!='') {
+                                            
+                                            })
+                                    }
+									else
+									{
+										
+									}
                                            
                                             //sendTextMessage(sender,text1);
                                         }
@@ -223,21 +229,24 @@ if(req.body.result.action=='demo1')
                 }
 
             });
-	 				res.status(200).json({
+			//
+			if(check==true)
+			{
+				res.status(200).json({
                                                 source: 'webhook',
-                                                speech: "sdfgdf",
-                                                displayText: "asdgdsfg",
+                                                speech: message,
+                                                displayText: message,
                                                 'messages':
                                                 [{
                                                     'type': 0,
-                                                    'speech': "zdxfgdfg"
+                                                    'speech': message
                                                 },
                                                 {
                                                     'title': 'Please provide your feedback',
                                                     'replies': ['Feedback'],
                                                     'type': 2
                                                 }],
-                                            }) 
+			}
   }
   
 })
