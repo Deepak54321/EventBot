@@ -194,9 +194,13 @@ if(req.body.result.action=='demo1')
                                             message = dealer_name + dealer_add + dealer_Mob;
                                            // text1="Helloa";
                                             console.log("Dealer information %s",message);
-                                            if(text1!='') {
-                                            
-                                            })
+                                            if(message!='') {
+                                            check=true;
+                                            }
+											else{
+												check=false;
+											}
+											)
                                     }
 									else
 									{
