@@ -194,7 +194,7 @@ if(req.body.result.action=='demo1')
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
                                             
                                             console.log("Dealer information %s",text1);
-                                            if(text1!='') {
+                                            //if(text1!='') {
                                              res.status(200).json({
            source: 'webhook',
            speech: text1,
@@ -208,11 +208,8 @@ if(req.body.result.action=='demo1')
                 'replies': ['Feedback'],
                 'type': 2}],
             })
-                                    }
-                                            else
-                                            {
-                                                //sendQuickReply(sender,"No dealers Found in your area", rply);
-                                            }
+                                    //}
+                                           
                                             //sendTextMessage(sender,text1);
                                         }
                                         else {
