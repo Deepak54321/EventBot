@@ -48,7 +48,6 @@ app.post('/webhook', function (req, res) {
                     var responseCode=result.responseData;
                     var productPrice=responseCode.product_price;
                     var price=productPrice[0].price +'Rs';
-			console.log(price);
            res.status(200).json({
            source: 'webhook',
            speech: price,
