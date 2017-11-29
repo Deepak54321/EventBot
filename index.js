@@ -139,7 +139,8 @@ if(req.body.result.action=='demo1')
                             }
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
-                                //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+                           
+							   //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
                             }
 						}
 
@@ -160,7 +161,11 @@ if(req.body.result.action=='demo1')
                                     }
                                     console.log("City Id %s",CityId);
                                     if(CityId=='') {
-                                        //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply3);
+                                            res.status(200).json({
+           source: 'webhook',
+           speech: StateId,
+           displayText: StateId
+            })
                                     }
 								}
 								});
@@ -180,11 +185,7 @@ if(req.body.result.action=='demo1')
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
                                             console.log("Dealer information %s",text1);
                                             if(text1!='') {
-                                                		 res.status(200).json({
-           source: 'webhook',
-           speech: text1,
-           displayText: text1
-            })
+                                                		
                                             }
                                             else
                                             {
