@@ -37,7 +37,7 @@ app.post('/webhook', function (req, res) {
   // parameters are stored in req.body.result.parameters
   //var userName = req.body.result.parameters['given-name']
    //var context=req.body.result.contexts[0];
-  if(req.body.result.action=='demo')
+  if(req.body.result.action=='Priceapi')
   {
    var request = require('request');
             request({
@@ -69,7 +69,7 @@ app.post('/webhook', function (req, res) {
    
  
   }
-if(req.body.result.action=='demo1')
+if(req.body.result.action=='Dealerapi')
   {
     
             var pincode=110005;
@@ -253,7 +253,7 @@ if(req.body.result.action=='demo1')
             					})
 			
   }
-  if(req.body.result.action=='intro')
+  if(req.body.result.action=='feedback')
   {
 	  res.status(200).json({
            					source: 'webhook',
@@ -261,8 +261,11 @@ if(req.body.result.action=='demo1')
            					displayText: '',
 		    				'messages': 
               					[
-                  				{'title': 'Please choose from the following options',
-                				'replies': ['Product Enquiry','Test Drive','Complaint'],
+                  				{'title': 'Please provide your feedback'
+                				'replies': ['Excellent',
+                            'Good',
+                            'Average',
+                            'Bad'],
                 				'type': 2}],
             					})
   }
