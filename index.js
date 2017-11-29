@@ -262,7 +262,7 @@ if(req.body.result.action=='demo1')
 		    				'messages': 
               					[
                   				{'title': 'Please choose from the following options',
-                				'replies': ['Product Enquiry',Test Drive,Complaint],
+                				'replies': ['Product Enquiry','Test Drive','Complaint'],
                 				'type': 2}],
             					})
   }
