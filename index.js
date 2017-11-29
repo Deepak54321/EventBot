@@ -195,11 +195,14 @@ var check='';
                                             //text1="Helloa";
                                             console.log("Dealer information %s",message);
                                             if(message!='') {
+												  
 											check=true;
+											console.log("Dealer information inside %s",check);
 											}
 											else
 											{
 											check=false;
+											console.log("Dealer information inside1 %s",check);
 											}
                                      
                                     //}
@@ -231,9 +234,9 @@ var check='';
 
             });
 			//replies insert here
-			if(check==true)
-			{
-				console.log(check +'check logged');
+			console.log("Dealer information outside %s",check);
+			
+				//console.log(check +'check logged');
 			       res.status(200).json({
            					source: 'webhook',
           					speech: message,
@@ -247,11 +250,7 @@ var check='';
                 				'replies': ['Feedback'],
                 				'type': 2}],
             					})
-			}
-			else
-			{
-				
-			}
+			
   }
   
 })
