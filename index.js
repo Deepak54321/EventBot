@@ -233,14 +233,15 @@ var check='';
 			//replies insert here
 			if(check==true)
 			{
+				console.log(check +'check logged');
 			       res.status(200).json({
            					source: 'webhook',
-          					speech: price,
-           					displayText: price,
+          					speech: message,
+           					displayText: message,
 		    				'messages': 
               					[{
                    					'type':0,
-                   					'speech':price
+                   					'speech':message
                					},
                   				{'title': 'Please provide your feedback',
                 				'replies': ['Feedback'],
