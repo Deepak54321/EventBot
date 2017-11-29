@@ -37,7 +37,7 @@ app.post('/webhook', function (req, res) {
   // parameters are stored in req.body.result.parameters
   //var userName = req.body.result.parameters['given-name']
    //var context=req.body.result.contexts[0];
-  if(req.body.result.action=='demo')
+  if(req.body.result.action=='demo1')
   {
    var request = require('request');
             request({
@@ -69,7 +69,7 @@ app.post('/webhook', function (req, res) {
    
  
   }
-if(req.body.result.action=='demo1')
+if(req.body.result.action=='demo')
   {
     
      var pincode=110005;
