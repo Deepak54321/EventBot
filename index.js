@@ -64,7 +64,7 @@ app.post('/webhook', function (req, res) {
 if(req.body.result.action=='demo1')
   {
     
-   var pincode=110005;
+     //var pincode=110005;
 
             var StateId='';
             var CityId='';
@@ -84,7 +84,7 @@ if(req.body.result.action=='demo1')
             var request = require('request');
             //1
             request({
-                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+pincode+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
+                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+dealer_pin+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
             },function (error,response,body) {
                 if (!error && response.statusCode == 200) {
                     var result = JSON.parse(body);
@@ -113,15 +113,10 @@ if(req.body.result.action=='demo1')
                     console.log("State %s",State);
                     console.log("City %s",City);
                     console.log("Country %s",Country);
-                    //console.log(city);
+                   
                     var view = State + City + Country + 'Hi now you can get your dealers' + lat + lng;
-			
                     //2
-				}
-
-            });
-			//2
-			request({
+                    request({
                         url: 'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/state'
                     }, function (error, response, body) {
                         if (!error && response.statusCode == 200) {
@@ -137,16 +132,21 @@ if(req.body.result.action=='demo1')
                                 }
 
                             }
+                            var reply2 = [
+                                {
+                                    "content_type": "text",
+                                    "title": "Restart",
+                                    "payload": "Restart"
+                                }
+                            ];
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
-                           
-							   //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+                                sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
                             }
-						}
 
-						});
-						//3
-						   request({
+                            //sendTextMessage(sender,StateId);
+                            //3
+                            request({
                                 url: 'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/city?profile_id=' + StateId
                             }, function (error, response, body) {
                                 if (!error && response.statusCode == 200) {
@@ -160,18 +160,19 @@ if(req.body.result.action=='demo1')
                                         }
                                     }
                                     console.log("City Id %s",CityId);
+                                    var reply3 = [
+                                        {
+                                            "content_type": "text",
+                                            "title": "Restart",
+                                            "payload": "Restart"
+                                        }
+                                    ];
                                     if(CityId=='') {
-                                            res.status(200).json({
-           source: 'webhook',
-           speech: StateId,
-           displayText: StateId
-            })
+                                        //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply3);
                                     }
-								}
-								});
-								//4
-								
-                                   request({
+
+                                  
+                                    request({
                                         url: 'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=' + StateId + '&city_profile_id=' + CityId
                                     }, function (error, response, body) {
                                         if (!error && response.statusCode == 200) {
@@ -183,21 +184,51 @@ if(req.body.result.action=='demo1')
                                             var dealer_add = dealers[0].dealer_address;
                                             var dealer_Mob = dealers[0].sales_manager_mobile;
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
+                                            var rply = [
+                                                {
+                                                    "content_type": "text",
+                                                    "title": "Feedback",
+                                                    "payload": "Feedback"
+                                                }
+                                            ];
                                             console.log("Dealer information %s",text1);
                                             if(text1!='') {
-                                                		
-                                            }
+                                                res.status(200).json({
+           source: 'webhook',
+           speech: price,
+           displayText: price
+            })
+                                    }
                                             else
                                             {
-                                                
+                                                //sendQuickReply(sender,"No dealers Found in your area", rply);
                                             }
-                                         
+                                            //sendTextMessage(sender,text1);
                                         }
                                         else {
                                             console(log.error());
                                         }
                                     });
+                                   
 
+                                }
+                                else {
+                                    console(log.error());
+                                }
+                            });
+                        }
+                        else {
+                            console(log.error());
+                        }
+                    });
+
+                }
+                else {
+                    console(log.error());
+
+                }
+
+            });
   }
   
 })
