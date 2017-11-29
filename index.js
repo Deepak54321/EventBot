@@ -64,7 +64,7 @@ app.post('/webhook', function (req, res) {
 if(req.body.result.action=='demo1')
   {
     
-     //var pincode=110005;
+     var pincode=110005;
 
             var StateId='';
             var CityId='';
@@ -84,7 +84,7 @@ if(req.body.result.action=='demo1')
             var request = require('request');
             //1
             request({
-                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+dealer_pin+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
+                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+pincode+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
             },function (error,response,body) {
                 if (!error && response.statusCode == 200) {
                     var result = JSON.parse(body);
