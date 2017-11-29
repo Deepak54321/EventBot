@@ -181,7 +181,7 @@ if(req.body.result.action=='demo1')
                                             }
                                             else
                                             {
-                                                sendQuickReply(sender,"No dealers Found in your area", rply);
+                                                //sendQuickReply(sender,"No dealers Found in your area", rply);
                                             }
                                             //sendTextMessage(sender,text1);
                                         }
