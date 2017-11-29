@@ -184,16 +184,10 @@ if(req.body.result.action=='demo1')
                                             var dealer_add = dealers[0].dealer_address;
                                             var dealer_Mob = dealers[0].sales_manager_mobile;
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
-                                            var rply = [
-                                                {
-                                                    "content_type": "text",
-                                                    "title": "Feedback",
-                                                    "payload": "Feedback"
-                                                }
-                                            ];
+                                            
                                             console.log("Dealer information %s",text1);
                                             if(text1!='') {
-                                                res.status(200).json({
+                                                res.json({
            source: 'webhook',
            speech: text1,
            displayText: text1
