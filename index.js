@@ -253,6 +253,19 @@ if(req.body.result.action=='demo1')
             					})
 			
   }
+  if(req.body.result.action=='intro')
+  {
+	  res.status(200).json({
+           					source: 'webhook',
+          					speech: '',
+           					displayText: '',
+		    				'messages': 
+              					[
+                  				{'title': 'Please choose from the following options',
+                				'replies': ['Product Enquiry',Test Drive,Complaint],
+                				'type': 2}],
+            					})
+  }
   
 })
 
