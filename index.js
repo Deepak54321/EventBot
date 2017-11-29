@@ -51,7 +51,15 @@ app.post('/webhook', function (req, res) {
            res.status(200).json({
            source: 'webhook',
            speech: price,
-           displayText: price
+           displayText: price,
+		    'messages': 
+              [{
+                   'type':0,
+                   'speech':price
+               },
+                  {'title': 'Please provide your feedback',
+                'replies': ['Feedback'],
+                'type': 2}],
             })
                 }
                 else {
