@@ -234,7 +234,7 @@ if(req.body.result.action=='demo1')
             });
 			//replies insert here
 			console.log("Dealer information outside %s",pincode);
-			
+			console.log("Dealer information outside %s",check);
 				//console.log(check +'check logged');
 			       res.status(200).json({
            					source: 'webhook',
