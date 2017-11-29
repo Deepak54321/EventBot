@@ -226,16 +226,7 @@ if(req.body.result.action=='Dealerapi')
                             console(log.error());
                         }
                     });
-
-                }
-                else {
-                    console(log.error());
-
-                }
-
-            });
-			//replies insert here
-			console.log("Dealer information outside %s",pincode);
+					console.log("Dealer information outside %s",pincode);
 			console.log("Dealer information outside %s",check);
 				//console.log(check +'check logged');
 			       res.status(200).json({
@@ -251,6 +242,17 @@ if(req.body.result.action=='Dealerapi')
                 				'replies': ['Feedback'],
                 				'type': 2}],
             					})
+
+                }
+                else {
+                    console(log.error());
+
+                }
+//now insert here
+
+            });
+			//replies insert here
+			
 			
   }
   if(req.body.result.action=='feedback')
