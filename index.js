@@ -33,13 +33,9 @@ app.post('/webhook', function (req, res) {
 
   // the value of Action from api.ai is stored in req.body.result.action
   console.log('* Received action -- %s', req.body.result.action)
-
-  // parameters are stored in req.body.result.parameters
-  //var userName = req.body.result.parameters['given-name']
-   //var context=req.body.result.contexts[0];
   if(req.body.result.action=='demo')
   {
-  /*  var request = require('request');
+   var request = require('request');
             request({
                 url:'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/statewiseprice/getprice?product_profile_id=salutorxspcol&state_id=240'
             },function (error,response,body) {
@@ -48,22 +44,18 @@ app.post('/webhook', function (req, res) {
                     var responseCode=result.responseData;
                     var productPrice=responseCode.product_price;
                     var price=productPrice[0].price +'Rs';
-                  /*  return {
-        		"speech": price,
-        		"displayText": price,
-    			}
+					 res.status(200).json({
+    source: 'webhook',
+    speech: price,
+    displayText: price
+  })
+                
                 }
                 else {
                     console(log.error());
                 }
-            });*/
-    var webhookReply = 'Hello Welcome from the webhook DemoApi.'
-  // the most basic response
-  res.status(200).json({
-    source: 'webhook',
-    speech: webhookReply,
-    displayText: webhookReply
-  })
+            });
+   
   }
 if(req.body.result.action=='demo1')
   {
