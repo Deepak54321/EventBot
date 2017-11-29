@@ -27,9 +27,9 @@ app.post('/webhook', function (req, res) {
   }*/
 
   // and some validation too
-  if (!req.body || !req.body.result || !req.body.result.parameters) {
+  /*if (!req.body || !req.body.result || !req.body.result.parameters) {
     return res.status(400).send('Bad Request')
-  }
+  }*/
 
   // the value of Action from api.ai is stored in req.body.result.action
   console.log('* Received action -- %s', req.body.result.action)
@@ -195,10 +195,18 @@ if(req.body.result.action=='demo1')
                                             
                                             console.log("Dealer information %s",text1);
                                             if(text1!='') {
-                                                res.json({
+                                             res.status(200).json({
            source: 'webhook',
            speech: text1,
-           displayText: text1
+           displayText: text1,
+		    'messages': 
+              [{
+                   'type':0,
+                   'speech':text1
+               },
+                  {'title': 'Please provide your feedback',
+                'replies': ['Feedback'],
+                'type': 2}],
             })
                                     }
                                             else
