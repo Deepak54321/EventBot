@@ -195,8 +195,8 @@ if(req.body.result.action=='demo1')
                                             if(text1!='') {
                                                 res.status(200).json({
            source: 'webhook',
-           speech: price,
-           displayText: price
+           speech: text1,
+           displayText: text1
             })
                                     }
                                             else
