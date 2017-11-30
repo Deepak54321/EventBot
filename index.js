@@ -87,7 +87,7 @@ app.post('/webhook', function (req, res) {
   }
 if(req.body.result.action=='Dealerapi')
   {
-    
+			var test = '';
             var pincode=110005;
             var check='';
             var StateId='';
@@ -208,6 +208,7 @@ if(req.body.result.action=='Dealerapi')
                                             var dealer_Mob = dealers[0].sales_manager_mobile;
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
 											message=text1;
+											test= message;
                                             //text1="Helloa";
                                             console.log("Dealer information %s",message);
                                             if(message!='') {
@@ -245,6 +246,7 @@ if(req.body.result.action=='Dealerapi')
                     });
 					console.log("Dealer information outside %s",pincode);
 			console.log("Dealer information outside %s",check);
+			console.log("test is this : %s"+test);
 				//console.log(check +'check logged');
 			       res.status(200).json({
            					source: 'webhook',
