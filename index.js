@@ -213,7 +213,7 @@ if(req.body.result.action=='Dealerapi')
                                             if(message!='') {
 												  var text2=true;
 											check=text2;
-											printdealer(res,message);
+											//printdealer(res,message);
 											console.log("Dealer information inside %s",check);
 											}
 											else
