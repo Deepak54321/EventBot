@@ -232,7 +232,7 @@ if(req.body.result.action=='Dealerapi')
                                         else {
                                             console(log.error());
                                         }
-										if(--waiting==0) callback();
+										callback();
                                     });
                                    
 
