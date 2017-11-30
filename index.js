@@ -18,25 +18,8 @@ app.post('/webhook', function (req, res) {
   // we expect to receive JSON data from api.ai here.
   // the payload is stored on req.body
   console.log(req.body)
-
-  // we have a simple authentication
- /* if (REQUIRE_AUTH) {
-    if (req.headers['auth-token'] !== AUTH_TOKEN) {
-      return res.status(401).send('Unauthorized')
-    }
-  }*/
-
-  // and some validation too
-  /*if (!req.body || !req.body.result || !req.body.result.parameters) {
-    return res.status(400).send('Bad Request')
-  }*/
-
-  // the value of Action from api.ai is stored in req.body.result.action
   console.log('* Received action -- %s', req.body.result.action)
-
-  // parameters are stored in req.body.result.parameters
-  //var userName = req.body.result.parameters['given-name']
-   //var context=req.body.result.contexts[0];
+  
    function printdealer(res,message)
    {
 	    res.status(200).json({
@@ -216,10 +199,12 @@ if(req.body.result.action=='Dealerapi')
 												  var text2=true;
 											check=text2;
 											//printdealer(res,message);
+											callback();
 											console.log("Dealer information inside %s",check);
 											}
 											else
 											{
+												call();
 												var text2=false;
 											    check=text2;
 											console.log("Dealer information inside1 %s",check);
@@ -232,7 +217,7 @@ if(req.body.result.action=='Dealerapi')
                                         else {
                                             console(log.error());
                                         }
-										callback();
+										
                                     });
                                    
 
@@ -256,6 +241,23 @@ if(req.body.result.action=='Dealerapi')
               					[{
                    					'type':0,
                    					'speech':message
+               					},
+                  				{'title': 'Please provide your feedback',
+                				'replies': ['Feedback'],
+                				'type': 2}],
+            					})
+					}
+					function call()
+					{
+						var mes='Dealer not found in your area';
+							 res.status(200).json({
+           					source: 'webhook',
+          					speech: mes,
+           					displayText: mes,
+		    				'messages': 
+              					[{
+                   					'type':0,
+                   					'speech':mes
                					},
                   				{'title': 'Please provide your feedback',
                 				'replies': ['Feedback'],
