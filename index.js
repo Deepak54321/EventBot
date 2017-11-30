@@ -152,7 +152,7 @@ if(req.body.result.action=='Dealerapi')
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
                                 //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
-								call();
+								//call();
                             }
 
                             //sendTextMessage(sender,StateId);
@@ -179,7 +179,7 @@ if(req.body.result.action=='Dealerapi')
                                         }
                                     ];
                                     if(CityId=='') {
-										call();
+										//call();
                                         //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply3);
                                     }
 
@@ -366,7 +366,7 @@ if(req.body.result.action=='Dealerapi')
                             ];
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
-                                call();
+                                //call();
 								//sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
                             }
 
