@@ -147,7 +147,7 @@ if(req.body.result.action=='Dealerapi')
                             ];
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
-                                sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+                                //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
                             }
 
                             //sendTextMessage(sender,StateId);
