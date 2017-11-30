@@ -68,6 +68,23 @@ app.post('/webhook', function (req, res) {
    
  
   }
+	if(req.body.result.action=='hotel')
+  {
+   res.status(200).json({
+           					source: 'webhook',
+          					speech: 'message',
+           					displayText: 'message',
+		    				"followupEvent":{
+						"name":"re_ask",
+							"data":
+							{
+								"check_in":"",
+								"check_out":"",
+								"adults":"3"
+							}
+						}
+            					})
+  }
 if(req.body.result.action=='Dealerapi')
   {
 	        var result=req.body.result;
