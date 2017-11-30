@@ -70,6 +70,9 @@ app.post('/webhook', function (req, res) {
   }
 if(req.body.result.action=='Dealerapi')
   {
+	        var context=req.body.result.contexts[0];
+			var dealerpin=context.parameters.pincode;
+			console.log("user pincode to find dealer %s",dealerpin);
 			var test = 'heelo';
             var pincode=110005;
             var check='';
