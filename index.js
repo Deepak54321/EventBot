@@ -197,7 +197,8 @@ if(req.body.result.action=='Dealerapi')
                                   
                                     request({
                                         url: 'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=' + StateId + '&city_profile_id=' + CityId
-                                    }, function (error, response, body) {
+										async : false,
+									}, function (error, response, body) {
                                         if (!error && response.statusCode == 200) {
                                             var result = JSON.parse(body);
                                             var resData = result.responseData;
@@ -209,6 +210,7 @@ if(req.body.result.action=='Dealerapi')
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
 											message=text1;
 											test= message;
+											console.log("Batman Begins");
                                             //text1="Helloa";
                                             console.log("Dealer information %s",message);
                                             if(message!='') {
@@ -247,6 +249,7 @@ if(req.body.result.action=='Dealerapi')
 					console.log("Dealer information outside %s",pincode);
 			console.log("Dealer information outside %s",check);
 			console.log("test is this : %s",test);
+			console.log("Dark Knight");
 				//console.log(check +'check logged');
 			       res.status(200).json({
            					source: 'webhook',
