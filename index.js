@@ -70,7 +70,8 @@ app.post('/webhook', function (req, res) {
   }
 if(req.body.result.action=='Dealerapi')
   {
-	        var context=req.body.result.contexts[0];
+	        var result=req.body.result;
+			var context=result.contexts[0];
 			var dealerpin=context.parameters.pincode;
 			console.log("user pincode to find dealer %s",dealerpin);
 			var test = 'heelo';
@@ -93,7 +94,7 @@ if(req.body.result.action=='Dealerapi')
             var request = require('request');
             //1
             request({
-                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+pincode+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
+                url:'https://maps.googleapis.com/maps/api/geocode/json?address='+dealerpin+'&key=AIzaSyD_YqB4d_-xKcmNP9jJCiPkJYDS8J3f6pI'
             },function (error,response,body) {
                 if (!error && response.statusCode == 200) {
                     var result = JSON.parse(body);
