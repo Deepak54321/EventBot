@@ -72,7 +72,7 @@ if(req.body.result.action=='Dealerapi')
   {
 	        var result=req.body.result;
 			var context=result.contexts[0];
-			var dealerpin=context.parameters.TestPincode;
+			var dealerpin=context.parameters.pincode;
 			console.log("user pincode to find dealer %s",dealerpin);
 			var test = 'heelo';
             var pincode=110005;
