@@ -232,6 +232,7 @@ if(req.body.result.action=='Dealerapi')
                                         else {
                                             console(log.error());
                                         }
+										if(--waiting==0) callback();
                                     });
                                    
 
@@ -245,10 +246,13 @@ if(req.body.result.action=='Dealerapi')
                             console(log.error());
                         }
                     });
+					
+					function callback(){
+						console.log("dark knight");
+					}
 					console.log("Dealer information outside %s",pincode);
 			console.log("Dealer information outside %s",check);
 			console.log("test is this : %s",test);
-			console.log("Dark Knight");
 				//console.log(check +'check logged');
 			       res.status(200).json({
            					source: 'webhook',
