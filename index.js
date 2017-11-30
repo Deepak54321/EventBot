@@ -72,7 +72,7 @@ if(req.body.result.action=='Dealerapi')
   {
 	        var result=req.body.result;
 			var context=result.contexts[0];
-			var dealerpin=context.parameters.pincode;
+			var dealerpin=context.parameters.TestPincode;
 			console.log("user pincode to find dealer %s",dealerpin);
 			var test = 'heelo';
             var pincode=110005;
@@ -150,10 +150,10 @@ if(req.body.result.action=='Dealerapi')
                                 }
                             ];
                             console.log("State Id %s",StateId);
-                            if(StateId=='') {
-                                //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
-								//call();
-                            }
+                            if(StateId!='') {
+                                //call();
+								//sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+                            
 
                             //sendTextMessage(sender,StateId);
                             //3
@@ -178,10 +178,9 @@ if(req.body.result.action=='Dealerapi')
                                             "payload": "Restart"
                                         }
                                     ];
-                                    if(CityId=='') {
-										//call();
+                                    if(CityId!='') {
                                         //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply3);
-                                    }
+                                    
 
                                   
                                     request({
@@ -203,17 +202,15 @@ if(req.body.result.action=='Dealerapi')
 											console.log("batman begins");
                                             if(message!='') {
 												  var text2=true;
-											check=text2;
-											//printdealer(res,message);
+											
 											callback();
-											console.log("Dealer information inside %s",check);
+											//console.log("Dealer information inside %s",check);
 											}
 											else
 											{
 												call();
-												var text2=false;
-											    check=text2;
-											console.log("Dealer information inside1 %s",check);
+												
+											//console.log("Dealer information inside1 %s",check);
 											}
                                      
                                     //}
@@ -225,6 +222,12 @@ if(req.body.result.action=='Dealerapi')
                                         }
 										
                                     });
+									//dealer api call ends here
+								}
+								else
+								{
+									call();
+								}
                                    
 
                                 }
@@ -232,6 +235,13 @@ if(req.body.result.action=='Dealerapi')
                                     console(log.error());
                                 }
                             });
+							//city api end here
+						}
+						else
+						{
+							call();
+						}
+							
                         }
                         else {
                             console(log.error());
@@ -278,8 +288,6 @@ if(req.body.result.action=='Dealerapi')
 //now insert here
 
             });
-			//replies insert here
-			
 			
   }
   //testdrive
@@ -365,10 +373,10 @@ if(req.body.result.action=='Dealerapi')
                                 }
                             ];
                             console.log("State Id %s",StateId);
-                            if(StateId=='') {
+                            if(StateId!='') {
                                 //call();
 								//sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
-                            }
+                            
 
                             //sendTextMessage(sender,StateId);
                             //3
@@ -393,9 +401,9 @@ if(req.body.result.action=='Dealerapi')
                                             "payload": "Restart"
                                         }
                                     ];
-                                    if(CityId=='') {
+                                    if(CityId!='') {
                                         //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply3);
-                                    }
+                                    
 
                                   
                                     request({
@@ -419,13 +427,13 @@ if(req.body.result.action=='Dealerapi')
 												  var text2=true;
 											
 											callback();
-											console.log("Dealer information inside %s",check);
+											//console.log("Dealer information inside %s",check);
 											}
 											else
 											{
 												call();
 												
-											console.log("Dealer information inside1 %s",check);
+											//console.log("Dealer information inside1 %s",check);
 											}
                                      
                                     //}
@@ -437,6 +445,12 @@ if(req.body.result.action=='Dealerapi')
                                         }
 										
                                     });
+									//dealer api call ends here
+								}
+								else
+								{
+									call();
+								}
                                    
 
                                 }
@@ -444,6 +458,13 @@ if(req.body.result.action=='Dealerapi')
                                     console(log.error());
                                 }
                             });
+							//city api end here
+						}
+						else
+						{
+							call();
+						}
+							
                         }
                         else {
                             console(log.error());
