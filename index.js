@@ -196,8 +196,7 @@ if(req.body.result.action=='Dealerapi')
 
                                   
                                     request({
-                                        url: 'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=' + StateId + '&city_profile_id=' + CityId
-										async : false,
+                                        url: 'http://www.yamaha-motor-india.com/iym-web-api//51DCDFC2A2BC9/network/search?type=sales&profile_id=' + StateId + '&city_profile_id=' + CityId	
 									}, function (error, response, body) {
                                         if (!error && response.statusCode == 200) {
                                             var result = JSON.parse(body);
@@ -210,9 +209,9 @@ if(req.body.result.action=='Dealerapi')
                                             var text1 = dealer_name + dealer_add + dealer_Mob;
 											message=text1;
 											test= message;
-											console.log("Batman Begins");
                                             //text1="Helloa";
                                             console.log("Dealer information %s",message);
+											console.log("batman begins");
                                             if(message!='') {
 												  var text2=true;
 											check=text2;
