@@ -71,7 +71,7 @@ app.post('/webhook', function (req, res) {
 if(req.body.result.action=='Dealerapi')
   {
 			var test = 'heelo';
-            var pincode=111111;
+            var pincode=110005;
             var check='';
             var StateId='';
             var CityId='';
@@ -147,7 +147,7 @@ if(req.body.result.action=='Dealerapi')
                             ];
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
-                                //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+                                sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
                             }
 
                             //sendTextMessage(sender,StateId);
