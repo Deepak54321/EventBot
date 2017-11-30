@@ -151,7 +151,8 @@ if(req.body.result.action=='Dealerapi')
                             ];
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
-                                sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+                                //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+								call();
                             }
 
                             //sendTextMessage(sender,StateId);
@@ -178,6 +179,7 @@ if(req.body.result.action=='Dealerapi')
                                         }
                                     ];
                                     if(CityId=='') {
+										call();
                                         //sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply3);
                                     }
 
@@ -364,7 +366,8 @@ if(req.body.result.action=='Dealerapi')
                             ];
                             console.log("State Id %s",StateId);
                             if(StateId=='') {
-                                sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
+                                call();
+								//sendQuickReply(sender,"No dealers Found in your area Please restart your conversation", reply2);
                             }
 
                             //sendTextMessage(sender,StateId);
@@ -414,16 +417,14 @@ if(req.body.result.action=='Dealerapi')
 											console.log("batman begins");
                                             if(message!='') {
 												  var text2=true;
-											check=text2;
-											//printdealer(res,message);
+											
 											callback();
 											console.log("Dealer information inside %s",check);
 											}
 											else
 											{
 												call();
-												var text2=false;
-											    check=text2;
+												
 											console.log("Dealer information inside1 %s",check);
 											}
                                      
