@@ -53,6 +53,51 @@ app.post('/webhook', function (req, res) {
    
  
   }
+	
+	if(req.body.result.action=='phone')
+  {
+	   var result=req.body.result;
+			var context=result.contexts[0];
+			var PhoneNumber=context.parameters.phonenumber;
+	  console.log("%s",PhoneNumber);
+	  if(PhoneNumber.length>10)
+	  {
+		  var message='please share your email';
+		   res.status(200).json({
+           source: 'webhook',
+           speech: message,
+           displayText: message,
+		    'messages': 
+              [{
+                   'type':0,
+                   'speech':message
+               }
+            })
+                }
+                else {
+                    console(log.error());
+                }
+            });
+	  }
+	  else
+	  {
+		   res.status(200).json({
+           					source: 'webhook',
+          					speech: 'Invalid phone Number Please enter again',
+           					displayText: 'Invalid phone Number Please enter again',
+		    				"followupEvent":{
+						"name":"re_ask",
+							"data":
+							{
+								"phonenumber":""
+							}
+						}
+	    
+            					})
+	  }
+  
+  }
+	
 	if(req.body.result.action=='hotel')
   {
    res.status(200).json({
