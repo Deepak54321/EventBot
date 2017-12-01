@@ -63,7 +63,7 @@ app.post('/webhook', function (req, res) {
 	  if(PhoneNumber.length>10)
 	  {
 		  var message='please share your email';
-		   res.status(200).json({
+		    res.status(200).json({
            source: 'webhook',
            speech: message,
            displayText: message,
@@ -73,11 +73,6 @@ app.post('/webhook', function (req, res) {
                    'speech':message
                }
             })
-                }
-                else {
-                    console(log.error());
-                }
-            });
 	  }
 	  else
 	  {
