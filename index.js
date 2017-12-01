@@ -20,23 +20,7 @@ app.post('/webhook', function (req, res) {
   console.log(req.body)
   console.log('* Received action -- %s', req.body.result.action)
   
-   function printdealer(res,message)
-   {
-	    res.status(200).json({
-           					/*source: 'webhook',
-          					speech: message,
-           					displayText: message,
-		    				'messages': 
-              					[{
-                   					'type':0,
-                   					'speech':message
-               					},
-                  				{'title': 'Please provide your feedback',
-                				'replies': ['Feedback'],
-                				'type': 2}],
-            					})*/
-		
-   }
+ 
   if(req.body.result.action=='Priceapi')
   {
    var request = require('request');
@@ -89,7 +73,7 @@ app.post('/webhook', function (req, res) {
             "contextOut": [
                 {
                     //"name": "dc324995-cd5d-48b2-a74d-d2fca6fa0cc3_id_dialog_context",
-			"name":"HotelBooking",
+			"name":"583b24bf-a819-4bf2-bd6c-a6812d1b8538_id_dialog_context",
                     "parameters": {
                          "check_in":"",
 								"check_out":"",
