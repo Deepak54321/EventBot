@@ -73,11 +73,11 @@ app.post('/webhook', function (req, res) {
             "contextOut": [
                 {
                     //"name": "dc324995-cd5d-48b2-a74d-d2fca6fa0cc3_id_dialog_context",
-			"name":"583b24bf-a819-4bf2-bd6c-a6812d1b8538_id_dialog_context",
+			"name":"HotelBooking",
                     "parameters": {
                          "check_in":"",
-								"check_out":"",
-								"adults":"3"
+			 "check_out":"",
+			  "adults":"3"
                     },
                     "lifespan": 2
                 }
