@@ -71,7 +71,7 @@ app.post('/webhook', function (req, res) {
               [{
                    'type':0,
                    'speech':message
-               }
+               }]
             })
 	  }
 	  else
