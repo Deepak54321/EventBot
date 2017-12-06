@@ -81,7 +81,7 @@ app.post('/webhook', function (req, res) {
           					speech: 'Invalid phone Number Please enter again',
            					displayText: 'Invalid phone Number Please enter again',
 		    				"followupEvent":{
-						"name":"re_ask",
+						"name":"re_phone",
 							"data":
 							{
 								"phonenumber":""
