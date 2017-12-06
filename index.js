@@ -24,8 +24,9 @@ app.post('/webhook', function (req, res) {
 	   var result=req.body.result;
 			var context=result.contexts[0];
 			var PhoneNumber=context.parameters.phonenumber;
+			var pattern = /^\d{10}$/;
 	  console.log("%s",PhoneNumber);
-	  if(PhoneNumber.length>10)
+	  if(pattern.test(PhoneNumber))
 	  {
 		  var message='please share your email';
 		    res.status(200).json({
