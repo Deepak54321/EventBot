@@ -30,8 +30,8 @@ app.post('/webhook', function (req, res) {
 		  var message='please share your email';
 		    res.status(200).json({
            source: 'webhook',
-           speech: message,
-           displayText: message,
+           //speech: message,
+           //displayText: message,
 		    'messages': 
               [{
                    'type':0,
