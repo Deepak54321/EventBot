@@ -64,15 +64,18 @@ app.post('/webhook', function (req, res) {
 	  {
 		  var message='please share your email';
 		    res.status(200).json({
-           source: 'webhook',
-           speech: message,
-           displayText: message,
-		    'messages': 
-              [{
-                   'type':0,
-                   'speech':message
-               }]
-            })
+           					source: 'webhook',
+          					speech: 'please share your email',
+           					displayText: 'please share your email',
+		    				"followupEvent":{
+						"name":"re_phone",
+							"data":
+							{
+								"phonenumber":PhoneNumber
+							}
+						}
+	    
+            					})
 	  }
 	  else
 	  {
