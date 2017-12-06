@@ -103,8 +103,8 @@ app.post('/webhook', function (req, res) {
 						"name":"re_ask",
 							"data":
 							{
-								"check_in":"",
-								"check_out":"",
+								//"check_in":"",
+								//"check_out":"",
 								"adults":"3"
 							}
 						}
