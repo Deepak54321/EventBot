@@ -55,48 +55,7 @@ app.post('/webhook', function (req, res) {
   }
 	
 	if(req.body.result.action=='phone')
-  {
-	   var result=req.body.result;
-			var context=result.contexts[0];
-			var PhoneNumber=context.parameters.phonenumber;
-	  console.log("%s",PhoneNumber);
-	  if(PhoneNumber.length>=10)
-	  {
-		  var message='please share your email';
-		    res.status(200).json({
-           source: 'webhook',
-           speech: message,
-           displayText: message,
-		    'messages': 
-              [{
-                   'type':0,
-                   'speech':message
-               }]
-            })
-	  }
-	  else
-	  {
-		   res.status(200).json({
-           					source: 'webhook',
-          					speech: 'Invalid phone Number Please enter again',
-           					displayText: 'Invalid phone Number Please enter again',
-		    				"followupEvent":{
-						"name":"re_phone",
-							"data":
-							{
-								"phonenumber":""
-							}
-						}
-	    
-            					})
-	  }
-  
-  }
-	
-	if(req.body.result.action=='hotel')
-  {
-	  var adult=7;
-   res.status(200).json({
+  { res.status(200).json({
            				source: 'webhook',
           					speech: 'message',
            					displayText: 'message',
@@ -109,21 +68,43 @@ app.post('/webhook', function (req, res) {
 								"adults":adult
 							}
 						}
-	      /* "speech": "The value was invalid so I changed it to its default. What is your value for MyField2?",
-            "displayText": "The value was invalid so I changed it to its default. What is your value for MyField2?",
-            "contextOut": [
-                {
-                    //"name": "dc324995-cd5d-48b2-a74d-d2fca6fa0cc3_id_dialog_context",
-			"name":"HotelBooking",
-                    "parameters": {
-                         "check_in":"",
-			 "check_out":"",
-			  "adults":"3"
-                    },
-                    "lifespan": 2
-                }
-            ]*/
-            					})
+	                 					})
+  }
+  }
+	
+	if(req.body.result.action=='hotel')
+  {var result=req.body.result;
+			var context=result.contexts[0];
+			var phonenumber=context.parameters.phonenumber;
+	  if(phonenumber.length<10)
+	  {
+   res.status(200).json({
+           				source: 'webhook',
+          					speech: 'Invalid phone number',
+           					displayText: 'Invalid phone number',
+		    				"followupEvent":{
+						"name":"re_phone",
+							"data":
+							{
+								
+								"phonenumber":""
+							}
+						}
+	                 					})
+	  }
+   else
+   {
+	  	 res.status(200).json({
+           					source: 'webhook',
+          					speech: 'Please share your email',
+           					displayText: 'Please share your email',
+		    				'messages': 
+              					[{
+                   					'type':0,
+                   					'speech':'Please share your email'
+               					}]
+            					}) 
+   }
   }
 if(req.body.result.action=='Dealerapi')
   {
