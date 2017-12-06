@@ -57,6 +57,46 @@ app.post('/webhook', function (req, res) {
             					})
 	  }
   
+  
+  
+  	if(req.body.result.action=='email-val')
+  {
+	   var result=req.body.result;
+			var context=result.contexts[0];
+			var Email=context.parameters.email;
+			var pattern = /^\d{10}$/;
+	  console.log("%s",Email);
+	  if(pattern.test(Email))
+	  {
+		  var message='please share your pincode';
+		    res.status(200).json({
+           source: 'webhook',
+           //speech: message,
+           //displayText: message,
+		    'messages': 
+              [{
+                   'type':0,
+                   'speech':message
+               }]
+            })
+	  }
+	  else
+	  {
+		   res.status(200).json({
+           					source: 'webhook',
+          					speech: 'Invalid email Please enter again',
+           					displayText: 'Invalid email Please enter again',
+		    				"followupEvent":{
+						"name":"re_email",
+							"data":
+							{
+								"email":""
+							}
+						}
+	    
+            					})
+	  }
+  
   }
 	
 	if(req.body.result.action=='hotel')
