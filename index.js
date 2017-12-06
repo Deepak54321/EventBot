@@ -96,7 +96,7 @@ app.post('/webhook', function (req, res) {
 	if(req.body.result.action=='hotel')
   {
    res.status(200).json({
-           				/*	source: 'webhook',
+           				source: 'webhook',
           					speech: 'message',
            					displayText: 'message',
 		    				"followupEvent":{
@@ -107,8 +107,8 @@ app.post('/webhook', function (req, res) {
 								"check_out":"",
 								"adults":"3"
 							}
-						}*/
-	       "speech": "The value was invalid so I changed it to its default. What is your value for MyField2?",
+						}
+	      /* "speech": "The value was invalid so I changed it to its default. What is your value for MyField2?",
             "displayText": "The value was invalid so I changed it to its default. What is your value for MyField2?",
             "contextOut": [
                 {
@@ -121,7 +121,7 @@ app.post('/webhook', function (req, res) {
                     },
                     "lifespan": 2
                 }
-            ]
+            ]*/
             					})
   }
 if(req.body.result.action=='Dealerapi')
