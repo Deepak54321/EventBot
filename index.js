@@ -60,7 +60,7 @@ app.post('/webhook', function (req, res) {
 			var context=result.contexts[0];
 			var PhoneNumber=context.parameters.phonenumber;
 	  console.log("%s",PhoneNumber);
-	  if(PhoneNumber.length>10)
+	  if(PhoneNumber.length>=10)
 	  {
 		  var message='please share your email';
 		    res.status(200).json({
@@ -81,7 +81,7 @@ app.post('/webhook', function (req, res) {
           					speech: 'Invalid phone Number Please enter again',
            					displayText: 'Invalid phone Number Please enter again',
 		    				"followupEvent":{
-						"name":"re_ask",
+						"name":"re_phone",
 							"data":
 							{
 								"phonenumber":""
