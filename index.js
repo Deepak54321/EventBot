@@ -73,7 +73,8 @@ app.post('/webhook', function (req, res) {
   }
 	
 	if(req.body.result.action=='hotel')
-  {var result=req.body.result;
+  {
+	        var result=req.body.result;
 			var context=result.contexts[0];
 			var phonenumber=context.parameters.phonenumber;
 	  if(phonenumber.length<10)
@@ -98,11 +99,7 @@ app.post('/webhook', function (req, res) {
            					source: 'webhook',
           					speech: 'Please share your email',
            					displayText: 'Please share your email',
-		    				'messages': 
-              					[{
-                   					'type':0,
-                   					'speech':'Please share your email'
-               					}]
+		    				
             					}) 
    }
   }
