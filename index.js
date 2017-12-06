@@ -19,7 +19,6 @@ app.post('/webhook', function (req, res) {
   // the payload is stored on req.body
   console.log(req.body)
   console.log('* Received action -- %s', req.body.result.action)
-	
 	if(req.body.result.action=='phone')
   {
 	   var result=req.body.result;
@@ -30,18 +29,15 @@ app.post('/webhook', function (req, res) {
 	  {
 		  var message='please share your email';
 		    res.status(200).json({
-           					source: 'webhook',
-          					speech: 'please share your email',
-           					displayText: 'please share your email',
-		    				"followupEvent":{
-						"name":"re_phone",
-							"data":
-							{
-								"phonenumber":PhoneNumber
-							}
-						}
-	    
-            					})
+           source: 'webhook',
+           speech: message,
+           displayText: message,
+		    'messages': 
+              [{
+                   'type':0,
+                   'speech':message
+               }]
+            })
 	  }
 	  else
 	  {
