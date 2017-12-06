@@ -95,6 +95,7 @@ app.post('/webhook', function (req, res) {
 	
 	if(req.body.result.action=='hotel')
   {
+	  var adult=7;
    res.status(200).json({
            				source: 'webhook',
           					speech: 'message',
@@ -105,7 +106,7 @@ app.post('/webhook', function (req, res) {
 							{
 								//"check_in":"",
 								//"check_out":"",
-								"adults":"3"
+								"adults":adult
 							}
 						}
 	      /* "speech": "The value was invalid so I changed it to its default. What is your value for MyField2?",
