@@ -64,9 +64,9 @@ app.post('/webhook', function (req, res) {
 	   var result=req.body.result;
 			var context=result.contexts[0];
 			var Email=context.parameters.email;
-			var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+			var pat = /^\d{10}$/;
 	  console.log("%s",Email);
-	  if(pattern.test(Email))
+	  if(pat.test(Email))
 	  {
 		  var message='please share your pincode';
 		    res.status(200).json({
